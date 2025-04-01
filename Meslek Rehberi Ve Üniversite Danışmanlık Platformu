@@ -1,3 +1,86 @@
 # WEBSITE
 Meslek Rehberi Ve Üniversite Danışmanlık Platformu
-Bu proje, meslek seçimi yapmamış öğrencilere test sunarak hangi alanlara yatkın olduklarını belirlemeye ve bu doğrultuda rehberlik etmeye odaklanmaktadır. Aynı zamanda, üniversite seçimini yapmış öğrencilerin üniversiteler hakkındaki sorularını mevcut öğrencilerle paylaşarak doğrudan bilgi almasını sağlayan bir web platformudur. Bu proje, öğrencilere meslek ve üniversite seçimi konusunda yardımcı olacak interaktif bir platform sunmayı amaçlamaktadır. Planlanan geliştirme süreci Scrum metodolojisi ile yönetilecek ve her sprint sonunda geri bildirimler doğrultusunda iyileştirmeler yapılacaktır.
+
+Proje Adı: Meslek Rehberi ve Üniversite Danışmanlık Platformu
+
+1. Proje Tanımı
+Bu proje, meslek seçimi yapmamış öğrencilere test sunarak hangi alanlara yatkın olduklarını belirlemeye ve bu doğrultuda rehberlik etmeye odaklanmaktadır. Aynı zamanda, üniversite seçimini yapmış öğrencilerin üniversiteler hakkındaki sorularını mevcut öğrencilerle paylaşarak doğrudan bilgi almasını sağlayan bir web platformudur.
+
+2. Amaç ve Hedefler
+•	Kullanıcılara mesleki yönelim testleri sunarak uygun alanlar hakkında bilgi sağlamak.
+•	Üniversite öğrencilerinin deneyimlerini, sorular soran öğrencilere aktarmalarını sağlamak.
+•	Kullanıcı dostu bir arayüz ile kolay erişim ve etkileşim sağlamak.
+•	Veri analizi yaparak en popüler meslek ve üniversite tercihlerine dair istatistikler sunmak.
+
+3. Hedef Kitle
+•	Lise öğrencileri (meslek seçimi yapmamış bireyler).
+•	Üniversite öğrencileri (bilgi almak ve paylaşmak isteyen bireyler).
+•	Kariyer danışmanları ve eğitimciler.
+
+4. Gereksinim Analizi
+
+4.1. İşlevsel Gereksinimler
+•	Meslek Testi Modülü
+o	Kullanıcılar meslek testini tamamlayabilmeli.
+o	Test sonuçlarına göre en uygun meslek önerileri gösterilmeli.
+o	Sonuçlar, kullanıcı profiline kaydedilebilmeli.
+•	Üniversite Danışmanlık Modülü
+o	Kullanıcılar, üniversiteler hakkında soru sorabilmeli.
+o	Üniversite öğrencileri, gelen sorulara yanıt verebilmeli.
+o	En popüler sorular ve yanıtlar öne çıkarılmalı.
+o	Kullanıcı sistemde kelime araması (üniversite ,bölüm ismi gibi) yapabilmeliler.
+o	
+•	Kullanıcı Yönetimi
+o	Kullanıcılar, platforma kayıt olup giriş yapabilmeli. (JWT veya OAuth kullanımı).
+o	Kullanıcı rolleri (öğrenci, üniversite öğrencisi, admin) tanımlanmalı.
+o	Kullanıcılar profillerini düzenleyebilmeli.
+o	Sistem hatalı girişte uyarı vermelidir
+
+
+4.2. Teknik Gereksinimler
+•	Frontend: React.js (kullanıcı arayüzü için).
+•	Backend: Spring Boot (Java) veya Node.js (API geliştirme için).
+•	Veritabanı: PostgreSQL veya MongoDB (veri saklama için).
+•	Kimlik Doğrulama: Firebase Authentication veya JWT ile oturum yönetimi.
+
+4.3. Kullanılacak API’ler ve Entegrasyonlar
+•	Meslek testi için bir öneri algoritması oluşturulacak.
+•	E-posta doğrulama ve şifre sıfırlama için bir entegrasyon gerekecek.
+•	Öğrenci verilerini anonim analiz edecek bir istatistik modülü düşünülebilir.//
+
+4.4. Performans ve Güvenlik Gereksinimleri
+•	Yüksek trafikte sistemin stabil çalışması için ölçeklenebilirlik sağlanmalı.
+•	Kullanıcı verileri şifrelenmeli ve güvenli bir şekilde saklanmalı.
+•	Sistem kullanıcıların e-posta ve şifre kullanarak giriş yapmasını sağlamalıdır.
+•	Kullanıcı şifresini unuttuysa yönlendirilmeli ve e-postaya gelen kod ile giriş yapılabilmeli.
+•	Yetkisiz erişimleri önlemek için RBAC (Role-Based Access Control) uygulanmalı.
+•	Sistem, saniyede en az 1000 işlem gerçekleştirmeli.
+•	Sistem 7/24 çalışır durumda olmalıdır.
+•	Sistem, 500 eş zamanlı kullanıcıya hizmet vermeli.
+•	Sistem, en fazla 3 saniyede yanıt vermelidir.
+•	Yeni, özellik eklemeye uygun modüler bir mimariye sahip olmalıdır.
+
+5. Kullanıcı Roller ve Yetkileri
+• 	Ziyaretçi: Testleri çözebilir, ancak yorum yapamaz.
+• 	Kayıtlı Kullanıcı (Öğrenci): Testleri çözebilir, yorum yazabilir, sorular sorabilir.
+• 	Üniversite Öğrencisi: Sorulara yanıt verebilir, deneyim paylaşabilir.
+• 	Admin: İçerik yönetimi yapabilir, yetkileri düzenleyebilir ve kullanıcı davranışlarını kısıtlayabilir.
+
+7. Veri Akışı ve Sistem Mimari Diyagramları
+•	Kullanıcı giriş ve kimlik doğrulama akışı.
+•	Test çözme ve sonuç analizi akışı.
+•	Üniversite soru-cevap süreci.
+
+8. Güvenlik Önlemleri
+•	Kullanıcı verilerinin güvenli şekilde saklanması.
+•	Yetkisiz erişimleri önlemek için rol tabanlı erişim kontrolü (RBAC).
+•	API güvenliği için JWT doğrulaması.
+
+9. Kullanılacak Araçlar
+•   Jira / Trello – Görev yönetimi ve Scrum panosu. 
+•   GitHub / GitLab – Kod versiyon kontrolü. 
+•   Figma / Adobe XD – UI/UX tasarım için. 
+•   Postman – API testleri için.
+
+10. Sonuç
+Bu proje, öğrencilere meslek ve üniversite seçimi konusunda yardımcı olacak interaktif bir platform sunmayı amaçlamaktadır. Planlanan geliştirme süreci Scrum metodolojisi ile yönetilecek ve her sprint sonunda geri bildirimler doğrultusunda iyileştirmeler yapılacaktır.
