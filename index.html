@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kullanıcı Profili</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="profile-card">
+            <button class="back-button">↜ Menüye Dön</button>
+            <div class="profile-form">
+                <div class="form-group">
+                    <label for="fullName">Ad Soyad *</label>
+                    <input type="text" id="fullName" required pattern="[A-Za-zÇçĞğİıÖöŞşÜü\s]+" title="Lütfen sadece harf kullanın">
+                </div>
+                <div class="form-group">
+                    <label for="username">Kullanıcı Adı *</label>
+                    <input type="text" id="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="school">Okul *</label>
+                    <input type="text" id="school" required placeholder="Okulunuzu girin">
+                </div>
+                <div class="form-group optional">
+                    <label for="universityDepartment">Üniversite-Bölüm</label>
+                    <input type="text" id="universityDepartment" placeholder="Örn: FIRAT ÜNİVERSİTESİ-YAZILIM MÜHENDİSLİĞİ">
+                </div>
+            </div>
+            <div class="profile-header">
+                <div class="profile-image-container">
+                    <img src="default-avatar.png" alt="Profil Fotoğrafı" id="profileImage">
+                    <input type="file" id="imageInput" accept="image/*">
+                    <div class="three-dots-menu">
+                        <button class="three-dots-btn">...</button>
+                        <div class="three-dots-content">
+                            <button class="menu-item" id="saveChangesBtn">Değişiklikleri Kaydet</button>
+                        </div>
+                    </div>
+                    <div class="image-menu" id="imageMenu">
+                        <button class="menu-item" id="addImageBtn">Fotoğraf Ekle</button>
+                        <button class="menu-item" id="changeImageBtn">Fotoğrafı Değiştir</button>
+                        <button class="menu-item" id="deleteImageBtn">Fotoğrafı Sil</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="test-results">
+            <h2>Test Sonuçları</h2>
+            <div class="test-content">
+                <p class="no-results">Henüz test sonucu bulunmuyor.</p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
