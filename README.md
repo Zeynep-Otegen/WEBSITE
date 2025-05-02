@@ -1,5 +1,27 @@
-Meslek Rehberi Ve Üniversite Danışmanlık Platformu
+# Kullanıcı Profil Sayfası
 
-Bu proje, meslek seçimi yapmamış öğrencilere test sunarak hangi alanlara yatkın olduklarını belirlemeye ve bu doğrultuda rehberlik etmeye odaklanmaktadır. Aynı zamanda, üniversite
-seçimini yapmış öğrencilerin üniversiteler hakkındaki sorularını mevcut öğrencilerle paylaşarak doğrudan bilgi almasını sağlayan bir web platformudur.
-Bu proje, öğrencilere meslek ve üniversite seçimi konusunda yardımcı olacak interaktif bir platform sunmayı amaçlamaktadır. Planlanan geliştirme süreci Scrum metodolojisi ile yönetilecek ve her sprint sonunda geri bildirimler doğrultusunda iyileştirmeler yapılacaktır.
+Bu proje, kullanıcıların profil bilgilerini düzenleyebilecekleri basit bir web sayfasıdır.
+
+## Özellikler
+
+- İsim ve soyisim girişi (zorunlu)
+- Kullanıcı adı girişi (zorunlu)
+- Profil fotoğrafı yükleme (opsiyonel)
+- Responsive tasarım
+- Yerel depolama ile veri saklama
+
+## Kurulum
+
+1. Projeyi bilgisayarınıza indirin
+2. `index.html` dosyasını bir web tarayıcısında açın
+
+## Kullanım
+
+1. Profil fotoğrafı yüklemek için "Fotoğraf Yükle" butonuna tıklayın
+2. İsim, soyisim ve kullanıcı adı bilgilerinizi girin
+3. "Kaydet" butonuna tıklayarak bilgilerinizi kaydedin
+
+## Gereksinimler
+
+- Modern bir web tarayıcısı (Chrome, Firefox, Safari, Edge vb.)
+- JavaScript desteği 
