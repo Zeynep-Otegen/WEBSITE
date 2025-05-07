@@ -42,12 +42,6 @@ Hayatının en önemli kararlarından birini verirken yalnız olmadığını bil
 Platform çok yakında yayında olacak!  
 Şimdilik bizi GitHub'da takip et ve projeyi desteklemek için ⭐ bırakmayı unutma!
 
----
-
-## 📬 Bize Ulaş
-
-📧 ogrencilersoruyor@ornekmail.com  
-📍 Takipte kal: [ogrencilersoruyor.com](https://ogrencilersoruyor.com) *(çok yakında)*
 
 ---
 
