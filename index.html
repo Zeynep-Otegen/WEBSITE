@@ -43,14 +43,16 @@
     }
 
     /* Giriş Yap butonunun özel stilleri */
-    #loginBtn {
+    /* Artık bu butonu bir a etiketi sarmalıyor, a etiketine stil verebiliriz */
+     .button-container a button {
       background-color: #34a853; /* Giriş yap butonu yeşil */
     }
 
-    /* Kaydol butonunun özel stilleri */
-    #signupBtn {
-      background-color: #34a853; /* Kaydol butonu yeşil */
-    }
+     /* A etiketinin default alt çizgiyi kaldırmak için */
+     .button-container a {
+         text-decoration: none;
+     }
+
 
     /* Çerçeve için container */
     .button-container {
@@ -72,8 +74,14 @@
   <!-- Butonlar için container -->
   <div class="button-container">
     <button id="googleSignInBtn">Google ile Devam Et</button>
-    <button id="loginBtn">Giriş Yap</button> <!-- Giriş Yap butonu -->
-    <button id="signupBtn">Kaydol</button> <!-- Kaydol butonu -->
+
+    <!-- GİRİŞ YAP BUTONUNUN GÜNCEL HALİ BURADA -->
+    <!-- signin.html sayfasına yönlendirme yapıyoruz -->
+    <a href="signin.html"><button id="loginBtn"> Giriş Yap </button></a>
+
+    <!-- Kaydol butonu (daha önceki güncellemeden kalma) -->
+    <a href="signup.html"><button id="signupBtn"> Kaydol </button></a>
+
   </div>
 
   <!-- Firebase SDK (Firebase 8 Kullanıyoruz) -->
@@ -84,21 +92,40 @@
   <script>
     // "Google ile Devam Et" butonunun işlevi
     document.getElementById('googleSignInBtn').addEventListener('click', function() {
-      alert("Google ile devam ediliyor...");
+      alert("Google ile devam ediliyor..."); // Bu kısmı Google ile Giriş fonksiyonunuzla değiştireceksiniz
     });
 
-    // "Giriş Yap" butonunun işlevi
-    document.getElementById('loginBtn').addEventListener('click', function() {
-      alert("Giriş yapılıyor...");
-    });
+    // "Giriş Yap" butonunun işlevi - ARTIK BU SATIRA İHTİYACINIZ YOK, SİLDİM
+    // document.getElementById('loginBtn').addEventListener('click', function() {
+    //   alert("Giriş yapılıyor...");
+    // });
 
-    // "Kaydol" butonunun işlevi
-    document.getElementById('signupBtn').addEventListener('click', function() {
-      alert("Kaydol işlemi başlatılıyor...");
+    // "Kaydol" butonunun işlevi - ZATEN SİLMİŞTİK/YORUM SATIRI YAPMIŞTIK
+    // document.getElementById('signupBtn').addEventListener('click', function() {
+    //   alert("Kaydol işlemi başlatılıyor...");
+    // });
+
+    // Eğer Firebase Auth state değişikliğini dinleyen kodunuz varsa, onu buraya eklemelisiniz.
+    // Örneğin:
+    /*
+    import { getAuth, onAuthStateChanged } from "firebase/auth";
+    const auth = getAuth();
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // Kullanıcı oturum açmış
+        console.log("Kullanıcı oturum açmış:", user);
+        // Kullanıcı oturum açtıktan sonra ana içerik sayfasına yönlendirebilirsiniz.
+        // window.location.href = "/anasayfa.html";
+      } else {
+        // Kullanıcı oturum açmamış
+        console.log("Kullanıcı oturum açmamış.");
+        // Giriş/kayıt butonlarını gösterebilirsiniz.
+      }
     });
+    */
   </script>
 </body>
-</html>
+</html> 
 
 
 
