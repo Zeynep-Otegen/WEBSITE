@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Giriş</title>
+  <style>
+    /* Sayfa içeriğini tam ortaya hizala */
+    html, body {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      justify-content: center; /* Yatayda ortalama */
+      align-items: center; /* Dikeyde ortalama */
+      text-align: center;
+      flex-direction: column;
+      background-color: white; /* Arka planı beyaz yap */
+    }
+
+    /* Hoşgeldiniz yazısının rengi siyah */
+    h1 {
+      color: black; /* Yazıyı siyah yap */
+    }
+
+    /* Buton stilleri */
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      color: white; /* Buton yazı rengini beyaz yap */
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      opacity: 0.8; /* Buton üzerine gelince biraz şeffaflaştır */
+    }
+
+    /* Google ile devam et butonunun özel stilleri */
+    #googleSignInBtn {
+      background-color: #4285F4; /* Google mavi rengi */
+    }
+
+    /* Giriş Yap butonunun özel stilleri */
+    #loginBtn {
+      background-color: #34a853; /* Giriş yap butonu yeşil */
+    }
+
+    /* Kaydol butonunun özel stilleri */
+    #signupBtn {
+      background-color: #34a853; /* Kaydol butonu yeşil */
+    }
+
+    /* Çerçeve için container */
+    .button-container {
+      border: 2px solid #4285F4; /* Çerçeve rengi */
+      padding: 20px; /* Çerçevenin içindeki boşluk */
+      border-radius: 10px; /* Kenarları yuvarla */
+      width: 300px; /* Container genişliği */
+      text-align: center; /* Butonların ortalanması */
+      display: flex;
+      flex-direction: column; /* Butonları dikey sıralar */
+      align-items: center; /* Butonları yatayda ortalar */
+    }
+
+  </style>
+</head>
+<body>
+  <h1>HOŞGELDİNİZ!</h1>
+
+  <!-- Butonlar için container -->
+  <div class="button-container">
+    <button id="googleSignInBtn">Google ile Devam Et</button>
+    <button id="loginBtn">Giriş Yap</button> <!-- Giriş Yap butonu -->
+    <button id="signupBtn">Kaydol</button> <!-- Kaydol butonu -->
+  </div>
+
+  <!-- Firebase SDK (Firebase 8 Kullanıyoruz) -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+
+  <!-- JavaScript dosyanı çağır -->
+  <script>
+    // "Google ile Devam Et" butonunun işlevi
+    document.getElementById('googleSignInBtn').addEventListener('click', function() {
+      alert("Google ile devam ediliyor...");
+    });
+
+    // "Giriş Yap" butonunun işlevi
+    document.getElementById('loginBtn').addEventListener('click', function() {
+      alert("Giriş yapılıyor...");
+    });
+
+    // "Kaydol" butonunun işlevi
+    document.getElementById('signupBtn').addEventListener('click', function() {
+      alert("Kaydol işlemi başlatılıyor...");
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

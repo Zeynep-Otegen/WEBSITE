@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giriş Yap</title>
+  <style>
+    /* İstediğiniz stil kodlarını buraya ekleyebilirsiniz. */
+    /* Ana sayfanızdaki stilin bir kısmını kopyalayabilirsiniz. */
+    body {
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #f0f0f0; /* Hafif gri arka plan */
+      margin: 0;
+    }
+
+    .signin-container {
+      background-color: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .signin-container h1 {
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    .signin-container label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        text-align: left;
+    }
+
+    .signin-container input[type="email"],
+    .signin-container input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box; /* Padding ve border'ı genişliğe dahil et */
+    }
+
+     .signin-container button {
+        width: 100%; /* Butonu container genişliğine yay */
+        padding: 10px;
+        font-size: 16px;
+        cursor: pointer;
+        border: none;
+        color: white;
+        background-color: #34a853; /* Yeşil renk */
+        border-radius: 4px;
+        margin-top: 10px;
+    }
+
+     .signin-container button:hover {
+        opacity: 0.9;
+     }
+
+     #error-message {
+         color: red;
+         margin-top: 15px;
+     }
+
+
+  </style>
+</head>
+<body>
+
+  <div class="signin-container">
+    <h1>Giriş Yap</h1>
+    <form id="signin-form">
+      <label for="email">E-posta:</label><br>
+      <input type="email" id="email" name="email" required><br>
+
+      <label for="password">Parola:</label><br>
+      <input type="password" id="password" name="password" required><br><br>
+
+      <button type="submit">Giriş Yap</button>
+    </form>
+    <div id="error-message"></div> <!-- Hata mesajları burada gösterilecek -->
+    <p><a href="/forgot-password.html">Parolamı Unuttum</a></p> <!-- İsteğe bağlı parola sıfırlama linki -->
+    <p>Hesabın yok mu? <a href="signup.html">Kaydol</a></p> <!-- Kaydol sayfasına geri dönüş linki -->
+  </div>
+
+  <!-- Firebase SDK'ları (Firebase 8 kullandığımız için 8.10.0 sürümünü kullandım) -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+
+  <!-- Kendi JavaScript dosyanızı çağırın -->
+  <script src="signin.js"></script>
+
+</body>
+</html>
