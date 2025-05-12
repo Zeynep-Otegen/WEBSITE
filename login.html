@@ -5,131 +5,87 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Google Giriş</title>
   <style>
-    /* Sayfa içeriğini tam ortaya hizala */
     html, body {
       height: 100%;
       margin: 0;
       display: flex;
-      justify-content: center; /* Yatayda ortalama */
-      align-items: center; /* Dikeyde ortalama */
+      justify-content: center;
+      align-items: center;
       text-align: center;
       flex-direction: column;
-      background-color: white; /* Arka planı beyaz yap */
+      background-color: white;
     }
 
-    /* Hoşgeldiniz yazısının rengi siyah */
     h1 {
-      color: black; /* Yazıyı siyah yap */
+      color: black;
     }
 
-    /* Buton stilleri */
     button {
       padding: 10px 20px;
       font-size: 16px;
       cursor: pointer;
       border: none;
-      color: white; /* Buton yazı rengini beyaz yap */
+      color: white;
       border-radius: 5px;
       margin-top: 10px;
     }
 
     button:hover {
-      opacity: 0.8; /* Buton üzerine gelince biraz şeffaflaştır */
+      opacity: 0.8;
     }
 
-    /* Google ile devam et butonunun özel stilleri */
     #googleSignInBtn {
-      background-color: #4285F4; /* Google mavi rengi */
+      background-color: #4285F4;
     }
 
-    /* Giriş Yap butonunun özel stilleri */
-    /* Artık bu butonu bir a etiketi sarmalıyor, a etiketine stil verebiliriz */
-     .button-container a button {
-      background-color: #34a853; /* Giriş yap butonu yeşil */
+    .button-container a button {
+      background-color: #34a853;
     }
 
-     /* A etiketinin default alt çizgiyi kaldırmak için */
-     .button-container a {
-         text-decoration: none;
-     }
+    .button-container a {
+      text-decoration: none;
+    }
 
-
-    /* Çerçeve için container */
     .button-container {
-      border: 2px solid #4285F4; /* Çerçeve rengi */
-      padding: 20px; /* Çerçevenin içindeki boşluk */
-      border-radius: 10px; /* Kenarları yuvarla */
-      width: 300px; /* Container genişliği */
-      text-align: center; /* Butonların ortalanması */
+      border: 2px solid #4285F4;
+      padding: 20px;
+      border-radius: 10px;
+      width: 300px;
+      text-align: center;
       display: flex;
-      flex-direction: column; /* Butonları dikey sıralar */
-      align-items: center; /* Butonları yatayda ortalar */
+      flex-direction: column;
+      align-items: center;
     }
-
   </style>
 </head>
 <body>
   <h1>HOŞGELDİNİZ!</h1>
 
-  <!-- Butonlar için container -->
   <div class="button-container">
     <button id="googleSignInBtn">Google ile Devam Et</button>
-
-    <!-- GİRİŞ YAP BUTONUNUN GÜNCEL HALİ BURADA -->
-    <!-- signin.html sayfasına yönlendirme yapıyoruz -->
     <a href="signin.html"><button id="loginBtn"> Giriş Yap </button></a>
-
-    <!-- Kaydol butonu (daha önceki güncellemeden kalma) -->
     <a href="signup.html"><button id="signupBtn"> Kaydol </button></a>
-
   </div>
 
   <!-- Firebase SDK (Firebase 8 Kullanıyoruz) -->
   <script
-  src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"
-  integrity="sha384-PmiGUoC3AtG7cuTNE8IQFYKzBRUv1+F0wVBaU9dVGFX3Zsk3nPxTI7sO3nAQdcE/"
-  crossorigin="anonymous">
-</script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"
+    integrity="sha384-PmiGUoC3AtG7cuTNE8IQFYKzBRUv1+F0wVBaU9dVGFX3Zsk3nPxTI7sO3nAQdcE/"
+    crossorigin="anonymous">
+  </script>
+  <script
+    src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"
+    integrity="sha384-B8sYQK4hnWsnkoHZ6/4yCjFPnH98KDCLr70lS2MSM6sX0eZSuDc5a+oc4kX+ZXKM"
+    crossorigin="anonymous">
+  </script>
 
-  <!-- JavaScript dosyanı çağır -->
   <script>
-    // "Google ile Devam Et" butonunun işlevi
     document.getElementById('googleSignInBtn').addEventListener('click', function() {
-      alert("Google ile devam ediliyor..."); // Bu kısmı Google ile Giriş fonksiyonunuzla değiştireceksiniz
+      alert("Google ile devam ediliyor...");
     });
-
-    // "Giriş Yap" butonunun işlevi - ARTIK BU SATIRA İHTİYACINIZ YOK, SİLDİM
-    // document.getElementById('loginBtn').addEventListener('click', function() {
-    //   alert("Giriş yapılıyor...");
-    // });
-
-    // "Kaydol" butonunun işlevi - ZATEN SİLMİŞTİK/YORUM SATIRI YAPMIŞTIK
-    // document.getElementById('signupBtn').addEventListener('click', function() {
-    //   alert("Kaydol işlemi başlatılıyor...");
-    // });
-
-    // Eğer Firebase Auth state değişikliğini dinleyen kodunuz varsa, onu buraya eklemelisiniz.
-    // Örneğin:
-    /*
-    import { getAuth, onAuthStateChanged } from "firebase/auth";
-    const auth = getAuth();
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        // Kullanıcı oturum açmış
-        console.log("Kullanıcı oturum açmış:", user);
-        // Kullanıcı oturum açtıktan sonra ana içerik sayfasına yönlendirebilirsiniz.
-        // window.location.href = "/anasayfa.html";
-      } else {
-        // Kullanıcı oturum açmamış
-        console.log("Kullanıcı oturum açmamış.");
-        // Giriş/kayıt butonlarını gösterebilirsiniz.
-      }
-    });
-    */
   </script>
 </body>
-</html> 
+</html>
 
 
 
