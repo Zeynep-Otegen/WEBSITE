@@ -140,9 +140,33 @@ function showResults(scores) {
     resultContainer.style.display = 'block';
 }
 
-// Form gönderildiğinde sonuçları hesapla ve göster
-document.getElementById('testForm').addEventListener('submit', e => {
-    e.preventDefault();
-    const scores = calculateResults();
-    showResults(scores);
+// Sayfa yüklendiğinde soruları ekle ve temel kontrolleri yap
+document.addEventListener('DOMContentLoaded', () => {
+    // Gerekli HTML elemanlarının varlığını kontrol et
+    const requiredIds = ['testForm', 'questions', 'result', 'scores', 'recommendation'];
+    let missing = [];
+    requiredIds.forEach(id => {
+        if (!document.getElementById(id)) missing.push(id);
+    });
+    if (missing.length > 0) {
+        // Sadece uyarı ver, body'yi değiştirme
+        const warning = document.createElement('div');
+        warning.style.color = 'red';
+        warning.style.fontSize = '20px';
+        warning.style.margin = '20px';
+        warning.textContent = `Eksik HTML elemanları: ${missing.join(', ')}. Lütfen HTML dosyanızda bu id'lere sahip elemanları ekleyin.`;
+        document.body.prepend(warning);
+        return;
+    }
+    createQuestions();
+
+    // Form submit işlemini güvenli hale getir
+    const form = document.getElementById('testForm');
+    if (form) {
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            const scores = calculateResults();
+            showResults(scores);
+        });
+    }
 });
