@@ -1,5 +1,50 @@
-Meslek Rehberi Ve Üniversite Danışmanlık Platformu
+# 🎓 Öğrenciler Soruyor
 
-Bu proje, meslek seçimi yapmamış öğrencilere test sunarak hangi alanlara yatkın olduklarını belirlemeye ve bu doğrultuda rehberlik etmeye odaklanmaktadır. Aynı zamanda, üniversite
-seçimini yapmış öğrencilerin üniversiteler hakkındaki sorularını mevcut öğrencilerle paylaşarak doğrudan bilgi almasını sağlayan bir web platformudur.
-Bu proje, öğrencilere meslek ve üniversite seçimi konusunda yardımcı olacak interaktif bir platform sunmayı amaçlamaktadır. Planlanan geliştirme süreci Scrum metodolojisi ile yönetilecek ve her sprint sonunda geri bildirimler doğrultusunda iyileştirmeler yapılacaktır.
+### Meslek Seçimi ve Üniversite Danışmanlığı Artık Daha Kolay!
+
+---
+
+## 👋 Hoş Geldin!
+
+Hayatının en önemli kararlarından birini verirken yalnız olmadığını bilmek ister misin?  
+**"Öğrenciler Soruyor"**, seni anlayan bir platform.
+
+---
+
+## 🌟 Neden Öğrenciler Soruyor?
+
+✅ **Mesleğini Keşfet** – Yeteneklerine uygun alanları keşfetmeni sağlayan testlerle kararsızlığa son ver.  
+✅ **Gerçek Deneyimlere Ulaş** – Üniversite öğrencilerine sorular sor, gerçek yanıtlar al.  
+✅ **Topluluğun Bir Parçası Ol** – Deneyimlerini paylaş, başkalarının kararlarına ışık tut.  
+✅ **Kolay Kullanım** – Mobil uyumlu ve kullanıcı dostu arayüzle her yerden eriş.  
+
+---
+
+## 🧠 Ne Yapabilirsin?
+
+🔍 Kapsamlı meslek testini çözerek kendini keşfet  
+💬 Üniversite ve bölüm hakkında sorular sor  
+📢 Tecrübelerini paylaş, diğer öğrencilere yardımcı ol  
+📈 En çok merak edilen soruları gör, cevabını kolayca bul
+
+---
+
+## 👥 Kimler İçin?
+
+🎓 Lise öğrencileri – Hangi mesleğe uygun olduğunu öğrenmek isteyenler  
+🎓 Üniversite öğrencileri – Bilgi arayanlara rehberlik etmek isteyenler  
+🎓 Danışmanlar ve eğitimciler – Öğrencilere yön vermek isteyen profesyoneller
+
+---
+
+## 🚀 Hemen Başla!
+
+Platform çok yakında yayında olacak!  
+Şimdilik bizi GitHub'da takip et ve projeyi desteklemek için ⭐ bırakmayı unutma!
+
+
+---
+
+> 👇 Haydi, doğru kararı birlikte verelim.  
+> Çünkü bazen en iyi rehber… başka bir öğrencidir.
+
