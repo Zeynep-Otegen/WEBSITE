@@ -10,76 +10,59 @@ const firebaseConfig = {
 };
 
 const app = firebase.initializeApp(firebaseConfig);
-const auth = firebase.auth(); // Firebase 8 namespace API kullanımı
-const provider = new firebase.auth.GoogleAuthProvider(); // Firebase 8 namespace API kullanımı
+const auth = firebase.auth();
+const provider = new firebase.auth.GoogleAuthProvider();
 
+// DOM elemanlarını başta bir kere al
+const userNameElement = document.getElementById("user-name");
+const userEmailElement = document.getElementById("user-email");
+const userInfoElement = document.getElementById("user-info");
+const googleSignInBtnElement = document.getElementById("googleSignInBtn");
+const extraInfoFormElement = document.getElementById("extra-info-form");
+const formElement = document.getElementById("form");
+
+// Google ile giriş işlemi
 function googleSignIn() {
-  auth.signInWithPopup(provider) // Firebase 8 namespace API kullanımı
+  auth.signInWithPopup(provider)
     .then((result) => {
-      // Kullanıcı başarıyla giriş yaptıysa
       const user = result.user;
       console.log("Giriş Başarılı! Kullanıcı: " + user.displayName);
 
-      // Kullanıcı bilgilerini al ve sayfada göster (Eğer sayfanızda bu elementler varsa)
-      const userNameElement = document.getElementById("user-name");
-      const userEmailElement = document.getElementById("user-email");
-      const userInfoElement = document.getElementById("user-info");
-      const googleSignInBtnElement = document.getElementById("googleSignInBtn");
-      const extraInfoFormElement = document.getElementById("extra-info-form");
-
-
       if (userNameElement) userNameElement.textContent = user.displayName;
       if (userEmailElement) userEmailElement.textContent = user.email;
-
-      // Kullanıcı bilgilerini göster (Eğer sayfanızda bu elementler varsa)
       if (userInfoElement) userInfoElement.style.display = "block";
-
-      // Google ile giriş butonunu gizle (Eğer sayfanızda bu element varsa)
       if (googleSignInBtnElement) googleSignInBtnElement.style.display = "none";
-
-      // Ekstra bilgi formunu göster (Eğer sayfanızda bu element varsa)
       if (extraInfoFormElement) extraInfoFormElement.style.display = "block";
-
-      // İsteğe bağlı: Google ile giriş yaptıktan sonra kullanıcıyı başka bir sayfaya yönlendirebilirsiniz.
-      // window.location.href = "/ana-icerik-sayfasi.html";
-
     })
     .catch((error) => {
       console.error("Hata:", error.code, error.message);
-      alert("Google ile giriş hatası oluştu: " + error.message); // Daha açıklayıcı bir mesaj
+      alert("Google ile giriş hatası oluştu: " + error.message);
     });
 }
 
-// Sadece "Google ile Devam Et" butonu için click olayı dinleniyor - Bu doğru
-document.getElementById("googleSignInBtn").addEventListener("click", googleSignIn);
+// Giriş butonuna tıklanıldığında
+googleSignInBtnElement?.addEventListener("click", googleSignIn);
 
-// Ekstra form gönderildiğinde işlemi gerçekleştir - Bu da doğru ve yerinde
-const extraForm = document.getElementById("form"); // Form elementini al
-if (extraForm) { // Eğer form elementi varsa dinleyici ekle
-    extraForm.addEventListener("submit", function(event) {
-      event.preventDefault(); // Formun sayfayı yenilemesini engelle
+// Ek bilgi formu gönderildiğinde
+formElement?.addEventListener("submit", (event) => {
+  event.preventDefault();
 
-      const phoneInput = document.getElementById("phone");
-      const addressInput = document.getElementById("address");
+  const phoneInput = document.getElementById("phone");
+  const addressInput = document.getElementById("address");
 
-      const phone = phoneInput ? phoneInput.value : 'Telefon alanı bulunamadı'; // Alan varsa değerini al
-      const address = addressInput ? addressInput.value : 'Adres alanı bulunamadı'; // Alan varsa değerini al
+  const phone = phoneInput?.value || 'Telefon alanı bulunamadı';
+  const address = addressInput?.value || 'Adres alanı bulunamadı';
 
+  console.log("Telefon Numarası:", phone);
+  console.log("Adres:", address);
 
-      // Kullanıcıdan alınan ek bilgileri konsola yazdır
-      console.log("Telefon Numarası: " + phone);
-      console.log("Adres: " + address);
+  formElement.reset(); // ID'si zaten alındıysa yeniden çağırmaya gerek yok
 
-      // Burada bilgileri bir veritabanına kaydedebilir veya başka bir işlem yapabilirsiniz
-      // Örneğin Firebase Firestore'a kaydetme kodu buraya gelebilir.
+  alert("Ek Bilgileriniz kaydedildi!");
+});
 
-      // Formu sıfırlama (Eğer form elementi varsa)
-     const extraForm = document.getElementById("extraForm");
-      if (extraForm) extraForm.reset();
-      alert("Ek Bilgileriniz kaydedildi!"); // Daha açıklayıcı bir mesaj
-    });
-} else {
-    console.log("'form' id'li element bulunamadı."); // Eğer form yoksa konsola bilgi ver
+if (!formElement) {
+  console.warn("'form' ID'li element bulunamadı.");
 }
 
 
