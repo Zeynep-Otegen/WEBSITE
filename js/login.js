@@ -74,6 +74,7 @@ if (extraForm) { // Eğer form elementi varsa dinleyici ekle
       // Örneğin Firebase Firestore'a kaydetme kodu buraya gelebilir.
 
       // Formu sıfırlama (Eğer form elementi varsa)
+     const extraForm = document.getElementById("extraForm");
       if (extraForm) extraForm.reset();
       alert("Ek Bilgileriniz kaydedildi!"); // Daha açıklayıcı bir mesaj
     });
@@ -81,25 +82,6 @@ if (extraForm) { // Eğer form elementi varsa dinleyici ekle
     console.log("'form' id'li element bulunamadı."); // Eğer form yoksa konsola bilgi ver
 }
 
-// **** ÖNEMLİ NOT ****
-// Kullanıcı oturum durumu değiştiğinde (giriş/çıkış) ne olacağını takip etmek için
-// genellike onAuthStateChanged listener'ını kullanmanız önerilir.
-// Bu kodu buraya ekleyebilirsiniz:
-/*
-firebase.auth().onAuthStateChanged(function(user) {
-  if (user) {
-    // Kullanıcı oturum açmış
-    console.log("Oturum durumu değişti: Kullanıcı oturum açtı.", user);
-    // Bu noktada kullanıcı oturum açmışsa anasayfaya yönlendirme yapabilirsiniz.
-    // window.location.href = "/anasayfa.html";
 
-  } else {
-    // Kullanıcı oturum açmamış veya oturumu kapatmış
-     console.log("Oturum durumu değişti: Kullanıcı oturum açmadı.");
-     // Bu noktada kullanıcı giriş/kayıt ekranına geri yönlendirme yapabilirsiniz.
-     // window.location.href = "/index.html"; // veya sizin giriş/kayıt sayfanız
-  }
-});
-*/
 
 
