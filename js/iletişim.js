@@ -84,7 +84,8 @@ document.addEventListener('DOMContentLoaded', function() {
 // Form doğrulama fonksiyonu
 function validateForm(formData) {
     let isValid = true;
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
 
     // E-posta doğrulama
     if (!emailRegex.test(formData.email)) {
