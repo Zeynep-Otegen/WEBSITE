@@ -1,127 +1,60 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Google Giriş</title>
-  <style>
-    /* Sayfa içeriğini tam ortaya hizala */
-    html, body {
-      height: 100%;
-      margin: 0;
-      display: flex;
-      justify-content: center; /* Yatayda ortalama */
-      align-items: center; /* Dikeyde ortalama */
-      text-align: center;
-      flex-direction: column;
-      background-color: white; /* Arka planı beyaz yap */
-    }
-
-    /* Hoşgeldiniz yazısının rengi siyah */
-    h1 {
-      color: black; /* Yazıyı siyah yap */
-    }
-
-    /* Buton stilleri */
-    button {
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
-      border: none;
-      color: white; /* Buton yazı rengini beyaz yap */
-      border-radius: 5px;
-      margin-top: 10px;
-    }
-
-    button:hover {
-      opacity: 0.8; /* Buton üzerine gelince biraz şeffaflaştır */
-    }
-
-    /* Google ile devam et butonunun özel stilleri */
-    #googleSignInBtn {
-      background-color: #4285F4; /* Google mavi rengi */
-    }
-
-    /* Giriş Yap butonunun özel stilleri */
-    #loginBtn {
-      background-color: #34a853; /* Giriş yap butonu yeşil */
-    }
-
-    /* Kaydol butonunun özel stilleri */
-    #signupBtn {
-      background-color: #34a853; /* Kaydol butonu yeşil */
-    }
-
-    /* Çerçeve için container */
-    .button-container {
-      border: 2px solid #4285F4; /* Çerçeve rengi */
-      padding: 20px; /* Çerçevenin içindeki boşluk */
-      border-radius: 10px; /* Kenarları yuvarla */
-      width: 300px; /* Container genişliği */
-      text-align: center; /* Butonların ortalanması */
-      display: flex;
-      flex-direction: column; /* Butonları dikey sıralar */
-      align-items: center; /* Butonları yatayda ortalar */
-    }
-
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Öğrenciler Soruyor</title>
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-  <h1>HOŞGELDİNİZ!</h1>
+    <header>
+        <nav>
+            <a href="#" class="logo">ÖĞRENCİLER SORUYOR</a>
+            <div class="nav-links">
+                <a href="#">Ana Sayfa</a>
+                <a href="hakkimizda.html">Hakkımızda</a>
+                <a href="#">Hizmetler</a>
+                <a href="iletişim.html">İletişim</a>
+                <a href="login.html">Giriş Yap</a>
+                <a href="profile.html" class="profile-btn">
+                    <i class="fas fa-user"></i>
+                    Profilim
+                </a>
+            </div>
+        </nav>
+    </header>
 
-  <!-- Butonlar için container -->
-  <div class="button-container">
-    <button id="googleSignInBtn">Google ile Devam Et</button>
-    <button id="loginBtn">Giriş Yap</button> <!-- Giriş Yap butonu -->
-    <button id="signupBtn">Kaydol</button> <!-- Kaydol butonu -->
-  </div>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Hoş Geldiniz</h1>
+            <p>Hangi mesleği yapacağımı bilmiyorum, kafam çok karışık demeye artık son. Haydi bu testi çöz ve kendini keşfet.</p>
+            <a href="testindex.html" class="cta-button">Teste Başlayın</a>
+        </div>
+    </section>
 
-  <!-- Firebase SDK (Firebase 8 Kullanıyoruz) -->
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <section class="features">
+        <h2>ÖZELLİKLERİMİZ</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>YETENEK TESTİ</h3>
+                <p>Bu test ile yeteneğini keşfet ve o alana yönel.</p>
+            </div>
+            <div class="feature-card">
+                <h3>SORU-CEVAP</h3>
+                <p>Aklına takılan tüm soruları sorabileceğin bir platform.</p>
+            </div>
+            <div class="feature-card">
+                <h3>BİLGİ SENDE</h3>
+                <p>Üniversitedeki bölümler hakkında sana bilgi verir.</p>
+            </div>
+            <div class="feature-card">
+                <h3>GERÇEKÇİ DENEYİM</h3>
+                <p>Her üniversiteden öğrencilerle yapılan konuşmaları görebilme imkanı sunar.</p>
+            </div>
+        </div>
+    </section>
 
-  <!-- JavaScript dosyanı çağır -->
-  <script>
-    // "Google ile Devam Et" butonunun işlevi
-    document.getElementById('googleSignInBtn').addEventListener('click', function() {
-      alert("Google ile devam ediliyor...");
-    });
-
-    // "Giriş Yap" butonunun işlevi
-    document.getElementById('loginBtn').addEventListener('click', function() {
-      alert("Giriş yapılıyor...");
-    });
-
-    // "Kaydol" butonunun işlevi
-    document.getElementById('signupBtn').addEventListener('click', function() {
-      alert("Kaydol işlemi başlatılıyor...");
-    });
-  </script>
+    <script src="js/home.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mesleki İlgi Alanları Testi</title>
+    <link rel="stylesheet" href="css/teststyle.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Mesleki İlgi Alanları Testi</h1>
+        <div class="instructions">
+            <p>Aşağıdaki ifadeleri dikkatlice okuyun. Her birine ne kadar katıldığınızı 1 ile 5 arasında puanlayın:</p>
+            <p>1: Hiç ilgimi çekmez | 2: Pek ilgimi çekmez | 3: Kararsızım | 4: İlgi duyarım | 5: Çok ilgimi çeker</p>
+        </div>
+        <form id="testForm">
+            <div id="questions"></div>
+            <button type="submit" class="submit-btn">Testi Tamamla</button>
+        </form>
+        <div id="result" class="result-container" style="display: none;">
+            <h2>Test Sonucunuz</h2>
+            <div id="scores"></div>
+            <div id="recommendation"></div>
+        </div>
+    </div>
+    <script src="js/testscript.js"></script>
+</body>
+</html> 

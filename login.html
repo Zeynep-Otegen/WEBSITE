@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Giriş</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      flex-direction: column;
+      background-color: white;
+    }
+
+    h1 {
+      color: black;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      color: white;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      opacity: 0.8;
+    }
+
+    #googleSignInBtn {
+      background-color: #4285F4;
+    }
+
+    .button-container a button {
+      background-color: #34a853;
+    }
+
+    .button-container a {
+      text-decoration: none;
+    }
+
+    .button-container {
+      border: 2px solid #4285F4;
+      padding: 20px;
+      border-radius: 10px;
+      width: 300px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>HOŞGELDİNİZ!</h1>
+
+  <div class="button-container">
+    <button id="googleSignInBtn">Google ile Devam Et</button>
+    <a href="signin.html"><button id="loginBtn"> Giriş Yap </button></a>
+    <a href="signup.html"><button id="signupBtn"> Kaydol </button></a>
+  </div>
+
+  <!-- Firebase SDK (Firebase 8 Kullanıyoruz) -->
+  <script
+    src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"
+    integrity="sha384-PmiGUoC3AtG7cuTNE8IQFYKzBRUv1+F0wVBaU9dVGFX3Zsk3nPxTI7sO3nAQdcE/"
+    crossorigin="anonymous">
+  </script>
+  <script
+    src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"
+    integrity="sha384-B8sYQK4hnWsnkoHZ6/4yCjFPnH98KDCLr70lS2MSM6sX0eZSuDc5a+oc4kX+ZXKM"
+    crossorigin="anonymous">
+  </script>
+
+  <script>
+    document.getElementById('googleSignInBtn').addEventListener('click', function() {
+      alert("Google ile devam ediliyor...");
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
