@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Üniversite Soru-Cevap Platformu</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-gray-50 min-h-screen">
+<!-- Üst Menü -->
+<header class="bg-white shadow-sm sticky top-0 z-50">
+    <nav class="container mx-auto px-4">
+        <div class="flex justify-between items-center h-16">
+            <div class="flex items-center space-x-8">
+                <a href="/" class="text-2xl font-bold text-pink-600">ÜniSoru</a>
+                <div class="hidden md:flex space-x-4">
+                    <a href="#" class="text-gray-600 hover:text-pink-600">Ana Sayfa</a>
+                    <a href="#" class="text-gray-600 hover:text-pink-600">Popüler</a>
+                    <a href="#" class="text-gray-600 hover:text-pink-600">Yeni</a>
+                    <a href="#" class="text-gray-600 hover:text-pink-600">Üniversiteler</a>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="relative">
+                    <input type="search" placeholder="Soru ara..." class="w-64 px-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:border-pink-500">
+                    <button class="absolute right-3 top-2.5 text-gray-400 hover:text-pink-600">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <button id="loginBtn" class="bg-pink-600 text-white px-4 py-2 rounded-full hover:bg-pink-700">Giriş Yap</button>
+                <button id="registerBtn" class="border border-pink-600 text-pink-600 px-4 py-2 rounded-full hover:bg-pink-50">Kayıt Ol</button>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main class="container mx-auto px-4 py-8">
+    <div class="grid grid-cols-12 gap-8">
+        <!-- Sol Sidebar -->
+        <aside class="col-span-3 hidden lg:block">
+            <div class="bg-white rounded-lg shadow-sm p-4">
+                <h3 class="font-semibold text-gray-700 mb-4">Kategoriler</h3>
+                <ul class="space-y-2">
+                    <li><a href="#" class="flex items-center text-gray-600 hover:text-pink-600">
+                        <i class="fas fa-graduation-cap w-6"></i>
+                        <span>Üniversite Seçimi</span>
+                    </a></li>
+                    <li><a href="#" class="flex items-center text-gray-600 hover:text-pink-600">
+                        <i class="fas fa-book w-6"></i>
+                        <span>Bölümler</span>
+                    </a></li>
+                    <li><a href="#" class="flex items-center text-gray-600 hover:text-pink-600">
+                        <i class="fas fa-home w-6"></i>
+                        <span>Yurt & Konaklama</span>
+                    </a></li>
+                    <li><a href="#" class="flex items-center text-gray-600 hover:text-pink-600">
+                        <i class="fas fa-utensils w-6"></i>
+                        <span>Yemek & Yaşam</span>
+                    </a></li>
+                    <li><a href="#" class="flex items-center text-gray-600 hover:text-pink-600">
+                        <i class="fas fa-bus w-6"></i>
+                        <span>Ulaşım</span>
+                    </a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Ana İçerik -->
+        <div class="col-span-12 lg:col-span-6">
+            <!-- Soru Sorma Kartı -->
+            <div class="bg-white rounded-lg shadow-sm p-6 mb-6">
+                <div class="flex items-center space-x-4 mb-4">
+                    <img src="https://ui-avatars.com/api/?name=YKS+Öğrencisi&background=random" alt="Profil" class="w-10 h-10 rounded-full">
+                    <div class="flex-1">
+                        <input type="text" placeholder="Ne sormak istiyorsun?" class="w-full px-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:border-pink-500" id="quickQuestion">
+                    </div>
+                </div>
+                <div class="flex justify-between items-center">
+                    <div class="flex space-x-4">
+                        <button class="flex items-center text-gray-600 hover:text-pink-600">
+                            <i class="fas fa-image mr-2"></i>
+                            <span>Fotoğraf</span>
+                        </button>
+                        <button class="flex items-center text-gray-600 hover:text-pink-600">
+                            <i class="fas fa-video mr-2"></i>
+                            <span>Video</span>
+                        </button>
+                    </div>
+                    <button class="bg-pink-600 text-white px-6 py-2 rounded-full hover:bg-pink-700">Sor</button>
+                </div>
+            </div>
+
+            <!-- Soru Filtreleme -->
+            <div class="bg-white rounded-lg shadow-sm p-4 mb-6">
+                <div class="flex justify-between items-center">
+                    <div class="flex space-x-4">
+                        <button class="text-pink-600 border-b-2 border-pink-600 pb-2">Tümü</button>
+                        <button class="text-gray-600 hover:text-pink-600">Popüler</button>
+                        <button class="text-gray-600 hover:text-pink-600">Yeni</button>
+                    </div>
+                    <select class="border border-gray-300 rounded-lg px-3 py-1 focus:outline-none focus:border-pink-500">
+                        <option>Sıralama</option>
+                        <option>En Yeni</option>
+                        <option>En Popüler</option>
+                        <option>En Çok Cevaplanan</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Sorular Listesi -->
+            <div id="questions" class="space-y-4">
+                <!-- Sorular JavaScript ile dinamik olarak eklenecek -->
+            </div>
+        </div>
+
+        <!-- Sağ Sidebar -->
+        <aside class="col-span-3 hidden lg:block">
+            <!-- Popüler Üniversiteler -->
+            <div class="bg-white rounded-lg shadow-sm p-4 mb-6">
+                <h3 class="font-semibold text-gray-700 mb-4">Popüler Üniversiteler</h3>
+                <ul class="space-y-3">
+                    <li><a href="#" class="flex items-center text-gray-600 hover:text-pink-600">
+                        <img src="https://via.placeholder.com/32" alt="Üni" class="w-8 h-8 rounded mr-3">
+                        <span>İstanbul Üniversitesi</span>
+                    </a></li>
+                    <li><a href="#" class="flex items-center text-gray-600 hover:text-pink-600">
+                        <img src="https://via.placeholder.com/32" alt="Üni" class="w-8 h-8 rounded mr-3">
+                        <span>Ankara Üniversitesi</span>
+                    </a></li>
+                    <li><a href="#" class="flex items-center text-gray-600 hover:text-pink-600">
+                        <img src="https://via.placeholder.com/32" alt="Üni" class="w-8 h-8 rounded mr-3">
+                        <span>Ege Üniversitesi</span>
+                    </a></li>
+                </ul>
+            </div>
+
+            <!-- Popüler Konular -->
+            <div class="bg-white rounded-lg shadow-sm p-4">
+                <h3 class="font-semibold text-gray-700 mb-4">Popüler Konular</h3>
+                <div class="flex flex-wrap gap-2">
+                    <a href="#" class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full hover:bg-pink-100 hover:text-pink-600">#YKS2024</a>
+                    <a href="#" class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full hover:bg-pink-100 hover:text-pink-600">#ÜniversiteSeçimi</a>
+                    <a href="#" class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full hover:bg-pink-100 hover:text-pink-600">#Yurt</a>
+                    <a href="#" class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full hover:bg-pink-100 hover:text-pink-600">#Burs</a>
+                    <a href="#" class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full hover:bg-pink-100 hover:text-pink-600">#ÖğrenciHayatı</a>
+                </div>
+            </div>
+        </aside>
+    </div>
+</main>
+
+<!-- Giriş Modal -->
+<div id="loginModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+    <div class="bg-white p-8 rounded-lg w-96">
+        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-2xl font-semibold">Giriş Yap</h2>
+            <button id="closeLoginModal" class="text-gray-500 hover:text-gray-700">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <form id="loginForm" class="space-y-4">
+            <div>
+                <label for="loginEmail" class="block text-sm font-medium text-gray-700">E-posta</label>
+                <input type="email" id="loginEmail" class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-pink-500 focus:ring-pink-500" required>
+            </div>
+            <div>
+                <label for="loginPassword" class="block text-sm font-medium text-gray-700">Şifre</label>
+                <input type="password" id="loginPassword" class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-pink-500 focus:ring-pink-500" required>
+            </div>
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <input type="checkbox" id="rememberMe" class="rounded border-gray-300 text-pink-600 focus:ring-pink-500">
+                    <label for="rememberMe" class="ml-2 block text-sm text-gray-700">Beni hatırla</label>
+                </div>
+                <a href="#" class="text-sm text-pink-600 hover:text-pink-700">Şifremi unuttum</a>
+            </div>
+            <button type="submit" class="w-full bg-pink-600 text-white px-4 py-2 rounded-lg hover:bg-pink-700">Giriş Yap</button>
+        </form>
+        <div class="mt-6 text-center">
+            <p class="text-sm text-gray-600">Hesabın yok mu? <a href="#" class="text-pink-600 hover:text-pink-700">Kayıt ol</a></p>
+        </div>
+    </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

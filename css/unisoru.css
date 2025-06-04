@@ -1,0 +1,150 @@
+/* Özel Stiller */
+.question-card {
+  transition: transform 0.2s ease-in-out;
+}
+
+.question-card:hover {
+  transform: translateY(-2px);
+}
+
+/* Modal Animasyonları */
+.modal-enter {
+  opacity: 0;
+}
+
+.modal-enter-active {
+  opacity: 1;
+  transition: opacity 200ms ease-in;
+}
+
+.modal-exit {
+  opacity: 1;
+}
+
+.modal-exit-active {
+  opacity: 0;
+  transition: opacity 200ms ease-in;
+}
+
+/* Form Elemanları */
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(219, 39, 119, 0.5);
+}
+
+/* Özel Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Responsive Düzenlemeler */
+@media (max-width: 640px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  #loginModal > div {
+    width: 90%;
+    margin: 1rem;
+  }
+}
+
+/* Loading Spinner */
+.spinner {
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #db2777;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Özel Animasyonlar */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-in;
+}
+
+/* Hover Efektleri */
+.hover-scale {
+  transition: transform 0.2s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.02);
+}
+
+/* Özel Buton Stilleri */
+.btn-pink {
+  background-color: #db2777;
+  color: white;
+  transition: all 0.2s ease;
+}
+
+.btn-pink:hover {
+  background-color: #be185d;
+  transform: translateY(-1px);
+}
+
+.btn-outline-pink {
+  border: 2px solid #db2777;
+  color: #db2777;
+  transition: all 0.2s ease;
+}
+
+.btn-outline-pink:hover {
+  background-color: #fdf2f8;
+  transform: translateY(-1px);
+}
+
+/* Tag Stilleri */
+.tag {
+  transition: all 0.2s ease;
+}
+
+.tag:hover {
+  background-color: #fdf2f8;
+  color: #db2777;
+  transform: translateY(-1px);
+}
+
+/* Avatar Stilleri */
+.avatar {
+  transition: transform 0.2s ease;
+}
+
+.avatar:hover {
+  transform: scale(1.1);
+}
+
+/* Card Gölge Efektleri */
+.card-hover {
+  transition: box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
