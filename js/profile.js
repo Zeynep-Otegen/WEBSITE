@@ -6,14 +6,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const school = document.getElementById('school');
     const universityDepartment = document.getElementById('universityDepartment');
     const imageMenu = document.getElementById('imageMenu');
-const addImageBtn = document.getElementById('addImageBtn');
-const changeImageBtn = document.getElementById('changeImageBtn');
-const deleteImageBtn = document.getElementById('deleteImageBtn');
-const saveChangesBtn = document.getElementById('saveChangesBtn');
-const threeDotsBtn = document.querySelector('.three-dots-btn');
-const threeDotsContent = document.querySelector('.three-dots-content');
-const backButton = document.querySelector('.back-button');
-
+    const addImageBtn = document.getElementById('addImageBtn');
+    const changeImageBtn = document.getElementById('changeImageBtn');
+    const deleteImageBtn = document.getElementById('deleteImageBtn');
+    const saveChangesBtn = document.getElementById('saveChangesBtn');
+    const threeDotsBtn = document.querySelector('.three-dots-btn');
+    const threeDotsContent = document.querySelector('.three-dots-content');
+    const backButton = document.querySelector('.back-button');
 
     // İlk harfleri büyük yapma fonksiyonu
     function capitalizeFirstLetter(string) {
@@ -29,20 +28,17 @@ const backButton = document.querySelector('.back-button');
         let value = e.target.value.replace(/[^A-Za-zÇçĞğİıÖöŞşÜü\s]/g, '');
         const words = value.split(' ');
         const lastWord = words[words.length - 1];
- 
-      
-        
 
         if (lastWord) {
             words[words.length - 1] = lastWord.charAt(0).toUpperCase() + lastWord.slice(1).toLowerCase();
         }
 
-
         for (let i = 0; i < words.length - 1; i++) {
             if (words[i]) {
                 words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1).toLowerCase();
             }
-        
+        }
+
         e.target.value = words.join(' ');
     });
 
@@ -51,15 +47,9 @@ const backButton = document.querySelector('.back-button');
         e.target.value = e.target.value.toUpperCase();
     });
 
-
     // Profil fotoğrafı yazısının görünürlüğünü ayarla
     function updateProfileImageTextVisibility() {
-        const profileImageText = document.getElementById('profileImageText');
-        if (profileImage.src.includes('default-avatar.png')) {
-            profileImageText.style.display = 'flex';
-        } else {
-            profileImageText.style.display = 'none';
-        }
+        // Eski kod kaldırıldı
     }
 
     // Menü seçeneklerini güncelleme fonksiyonu (DOM'u dinamik oluştur)
@@ -92,7 +82,6 @@ const backButton = document.querySelector('.back-button');
             deleteBtn.onclick = deleteProfileImage;
             imageMenu.appendChild(changeBtn);
             imageMenu.appendChild(deleteBtn);
-
         }
     }
 
@@ -104,41 +93,34 @@ const backButton = document.querySelector('.back-button');
             reader.onload = (e) => {
                 profileImage.src = e.target.result;
                 updateMenuOptions();
- 
-
                 updateProfileImageTextVisibility();
- 
                 saveProfile();
             };
             reader.readAsDataURL(file);
         }
     });
 
-// Profil fotoğrafına tıklandığında menüyü göster/gizle
-profileImage.addEventListener('click', (e) => {
-    e.stopPropagation();
-    updateMenuOptions(); // Menüyü göstermeden önce seçenekleri güncelle
-});
-
-// Profil fotoğrafı circle'ına tıklanınca menüyü göster/gizle
-const profileImageCircle = document.querySelector('.profile-image-circle');
-if (profileImageCircle) {
-    profileImageCircle.addEventListener('click', (e) => {
+    // Profil fotoğrafına tıklandığında menüyü göster/gizle
+    profileImage.addEventListener('click', (e) => {
         e.stopPropagation();
         updateMenuOptions();
-    });
-}
- // Menüyü göstermeden önce seçenekleri güncelle
-
         imageMenu.classList.toggle('show');
     });
+
+    // Profil fotoğrafı circle'ına tıklanınca menüyü göster/gizle
+    const profileImageCircle = document.querySelector('.profile-image-circle');
+    if (profileImageCircle) {
+        profileImageCircle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            updateMenuOptions();
+            imageMenu.classList.toggle('show');
+        });
+    }
 
     // Üç nokta menüsünü aç/kapat
     threeDotsBtn.addEventListener('click', (e) => {
         e.stopPropagation();
         threeDotsContent.classList.toggle('show');
-
-       
         imageMenu.classList.remove('show');
     });
 
@@ -146,43 +128,48 @@ if (profileImageCircle) {
     document.addEventListener('click', () => {
         imageMenu.classList.remove('show');
         threeDotsContent.classList.remove('show');
-    }); 
-// Menü içeriğine tıklandığında event'in yukarı çıkmasını engelle
-threeDotsContent.addEventListener('click', (e) => {
-    e.stopPropagation();
-});
+    });
 
-imageMenu.addEventListener('click', (e) => {
-    e.stopPropagation();
-});
+    // Menü içeriğine tıklandığında event'in yukarı çıkmasını engelle
+    threeDotsContent.addEventListener('click', (e) => {
+        e.stopPropagation();
+    });
 
-// Menü öğelerine tıklandığında menüyü kapat
-addImageBtn.addEventListener('click', () => {
-    imageInput.click();
-    imageMenu.classList.remove('show');
-});
+    imageMenu.addEventListener('click', (e) => {
+        e.stopPropagation();
+    });
 
-changeImageBtn.addEventListener('click', () => {
-    imageInput.click();
-    imageMenu.classList.remove('show');
-});
+    // Menü öğelerine tıklandığında menüyü kapat
+    if (addImageBtn) {
+        addImageBtn.addEventListener('click', () => {
+            imageInput.click();
+            imageMenu.classList.remove('show');
+        });
+    }
 
-deleteImageBtn.addEventListener('click', () => {
-    profileImage.src = 'default-avatar.png';
-    imageMenu.classList.remove('show');
-    updateProfileImageTextVisibility(); // bunu da ekleyelim
-    saveProfile();
-});
+    if (changeImageBtn) {
+        changeImageBtn.addEventListener('click', () => {
+            imageInput.click();
+            imageMenu.classList.remove('show');
+        });
+    }
 
-// Alternatif olarak, ayrı bir fonksiyon kullanmak istersen:
-function deleteProfileImage() {
-    profileImage.src = 'default-avatar.png';
-    imageMenu.classList.remove('show');
-    updateProfileImageTextVisibility();
-    saveProfile();
-}
+    if (deleteImageBtn) {
+        deleteImageBtn.addEventListener('click', () => {
+            profileImage.src = 'asset/default-avatar.png';
+            imageMenu.classList.remove('show');
+            updateProfileImageTextVisibility();
+            saveProfile();
+        });
+    }
 
-
+    // Alternatif olarak, ayrı bir fonksiyon
+    function deleteProfileImage() {
+        profileImage.src = 'asset/default-avatar.png';
+        imageMenu.classList.remove('show');
+        updateProfileImageTextVisibility();
+        saveProfile();
+    }
 
     // Değişiklikleri kaydet butonuna tıklama
     saveChangesBtn.addEventListener('click', () => {
@@ -211,14 +198,14 @@ function deleteProfileImage() {
         username.value = userProfile.username || '';
         school.value = userProfile.school || '';
         universityDepartment.value = userProfile.universityDepartment || '';
-        if (userProfile.profileImage) {
+        if (userProfile.profileImage && userProfile.profileImage.startsWith('asset/')) {
             profileImage.src = userProfile.profileImage;
+        } else {
+            profileImage.src = 'asset/default-avatar.png';
         }
     }
-      
 
-  // Sayfa yüklendiğinde menü seçeneklerini ve yazı görünürlüğünü güncelle
+    // Sayfa yüklendiğinde menü seçeneklerini ve yazı görünürlüğünü güncelle
     updateMenuOptions();
     updateProfileImageTextVisibility();
 });
-
