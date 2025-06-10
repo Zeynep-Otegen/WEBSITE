@@ -82,5 +82,16 @@ o	Sistem hatalı girişte uyarı vermelidir
 •   Figma / Adobe XD – UI/UX tasarım için. 
 •   Postman – API testleri için.
 
-10. Sonuç
+10. API kullanımı
+### API Kullanımı (Planlanan)
+Projemizin backend kısmında API kullanımı için aşağıdaki endpointler planlanmıştır:
+
+- Kullanıcı Kaydı: POST /api/users/register
+- Kullanıcı Girişi: POST /api/users/login
+- Test Sonuçlarını Kaydetme: POST /api/results
+- Soru Sorma: POST /api/questions
+
+Geliştirme sürecine göre API detayları güncellenecektir.
+
+11. Sonuç
 Bu proje, öğrencilere meslek ve üniversite seçimi konusunda yardımcı olacak interaktif bir platform sunmayı amaçlamaktadır. Planlanan geliştirme süreci Scrum metodolojisi ile yönetilecek ve her sprint sonunda geri bildirimler doğrultusunda iyileştirmeler yapılacaktır.
